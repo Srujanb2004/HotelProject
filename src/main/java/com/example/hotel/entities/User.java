@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.example.hotel.enums.Role;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -40,6 +42,11 @@ public class User {
     @NotNull
     @Column(nullable = false)
     private Boolean active;
+    
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
     
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

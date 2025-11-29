@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum RoomStatus {
 
+	FREE("Is Available for Booking"),
     PENDING("Pending confirmation"),
     CONFIRMED("Room confirmed"),
     CHECKED_IN("Guest checked in"),

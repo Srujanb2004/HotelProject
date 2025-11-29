@@ -9,6 +9,7 @@ import com.example.hotel.Dto.UserDto;
 import com.example.hotel.Dto.UserUpdateDto;
 import com.example.hotel.HotelException.HotelExceptions;
 import com.example.hotel.entities.User;
+import com.example.hotel.enums.Role;
 import com.example.hotel.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -36,13 +37,21 @@ public class UserService {
 		if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
 			throw new HotelExceptions("Email already registered");
 		}
+		
+		if (dto.getRole() == null) {
+	        throw new HotelExceptions("Role is required and can be: ADMIN, CUSTOMER, RECEPTIONIST, HOUSEKEEPING");
+	    }
 
+	    if (!dto.getRole().name().equals(dto.getRole().name().toUpperCase())) {
+	        throw new HotelExceptions("Role must be CAPITAL letters. Allowed values: ADMIN, CUSTOMER, RECEPTIONIST, HOUSEKEEPING");
+	    }
 		User user = new User();
 		user.setUsername(dto.getUsername());
 		user.setPassword(dto.getPassword());
 		user.setEmail(dto.getEmail());
 		user.setActive(dto.getActive());
 		user.setRoom(null);
+		user.setRole(dto.getRole());
 
 		return userRepository.save(user);
 

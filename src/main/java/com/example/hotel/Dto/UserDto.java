@@ -1,5 +1,8 @@
 package com.example.hotel.Dto;
 
+
+import com.example.hotel.enums.Role;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +13,8 @@ public class UserDto {
     private String password;
     private String email;
     private Boolean active;
+    private Role role;
+
 
 	
     

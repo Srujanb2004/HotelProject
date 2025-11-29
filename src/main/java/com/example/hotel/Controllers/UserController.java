@@ -27,6 +27,7 @@ public class UserController {
 
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody UserDto userdto) throws HotelExceptions {
+		
 		try {
 			User registeredUser = userService.registerUser(userdto);
 			ApiResponse apiResponse = userService.myResponse("success", "User registered successfully", registeredUser);
@@ -37,6 +38,7 @@ public class UserController {
 
 			return ResponseEntity.badRequest().body(apiResponse);
 		}
+		
 	}
 
 	@PatchMapping("/update/{id}")
