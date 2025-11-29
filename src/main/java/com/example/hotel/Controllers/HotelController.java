@@ -1,4 +1,4 @@
-package com.example.hotel.controller;
+package com.example.hotel.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
