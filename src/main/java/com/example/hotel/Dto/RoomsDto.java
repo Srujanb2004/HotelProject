@@ -11,6 +11,8 @@ import lombok.Setter;
 @Setter
 public class RoomsDto {
 
+	private Integer roomId;
+	
 	private Integer roomNum;
 
 	private String roomType;
